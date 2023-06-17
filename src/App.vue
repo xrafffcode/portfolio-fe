@@ -4,8 +4,17 @@ import NavbarComponent from './components/Navbar/NavbarComponent.vue';
 </script>
 
 <template>
-  <NavbarComponent />
+  <NavbarComponent v-if="shouldShowNavbar" />
   <RouterView />
 </template>
 
 
+<script>
+export default {
+  computed: {
+    shouldShowNavbar() {
+      return this.$route.path !== '/';
+    }
+  }
+}
+</script>
